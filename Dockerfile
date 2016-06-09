@@ -8,6 +8,10 @@ RUN apt-get -y install libjpeg62 libgif4 libart-2.0-2
 RUN wget -P /tmp/ http://archive.canonical.com/ubuntu/pool/partner/s/swftools/swftools_0.9.0-0ubuntu2_amd64.deb
 RUN dpkg -i /tmp/swftools_0.9.0-0ubuntu2_amd64.deb
 
+# delayed job
+RUN mkdir /etc/service/delayed
+ADD oml.sh /etc/service/delayed/run
+
 EXPOSE 80 22 443
 
 CMD ["/sbin/my_init"]
